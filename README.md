@@ -32,126 +32,130 @@ Pastikan Python 3.x telah terpasang, lalu install dependensi:
 
 ```bash
 pip install PyOpenGL PyOpenGL_accelerate pygame
+```
 
-🚀 Menjalankan Aplikasi
-bash
-Salin
-Edit
+## 🚀 Menjalankan Aplikasi
+
+```bash
 python namafile.py
-Gantilah namafile.py dengan nama file Python Anda (misalnya main_3d.py).
+```
 
-🎮 Kontrol
-Tombol	Fungsi
-W, A, S, D	Translasi objek (atas/kiri/bawah/kanan)
-Panah (↑↓←→)	Rotasi objek
-Mouse Drag	Rotasi objek dengan mouse
-Q, E	Zoom kamera masuk / keluar
-1	Tampilkan objek Cube
-2	Tampilkan objek Pyramid
-3	Tampilkan keduanya
-L	Toggle lighting
-ESC	Keluar dari aplikasi
+Gantilah `namafile.py` dengan nama file Python Anda (misalnya `main_3d.py`).
 
-🧱 Struktur Kode
-Object3D : Kelas dasar objek 3D
+## 🎮 Kontrol
 
-Cube, Pyramid : Turunan dari Object3D
+| Tombol        | Fungsi                                |
+|---------------|----------------------------------------|
+| W, A, S, D     | Translasi objek (atas/kiri/bawah/kanan) |
+| Panah (↑↓←→)   | Rotasi objek                          |
+| Mouse Drag     | Rotasi objek dengan mouse             |
+| Q, E           | Zoom kamera masuk / keluar            |
+| 1              | Tampilkan objek Cube                  |
+| 2              | Tampilkan objek Pyramid               |
+| 3              | Tampilkan keduanya                   |
+| L              | Toggle lighting                       |
+| ESC            | Keluar dari aplikasi                  |
 
-Camera : Mengatur perspektif dan posisi kamera
+## 🧱 Struktur Kode
 
-Lighting : Setup ambient, diffuse, dan specular lighting
+- `Object3D` : Kelas dasar objek 3D
+- `Cube`, `Pyramid` : Turunan dari `Object3D`
+- `Camera` : Mengatur perspektif dan posisi kamera
+- `Lighting` : Setup ambient, diffuse, dan specular lighting
+- `Graphics3D` : Kelas utama untuk rendering dan kontrol
 
-Graphics3D : Kelas utama untuk rendering dan kontrol
+## ⚙️ Teknologi
 
-⚙️ Teknologi
-PyOpenGL
+- PyOpenGL
+- Pygame
 
-Pygame
+## 📋 Catatan Tambahan
 
-📋 Catatan Tambahan
-Lighting menggunakan Phong model
+- Lighting menggunakan **Phong model**
+- Shading menggunakan **Gouraud**
+- Normal vector dihitung per face untuk efek pencahayaan realistis
 
-Shading menggunakan Gouraud
+---
 
-Normal vector dihitung per face untuk efek pencahayaan realistis
+# ✏️ 2D Graphics Editor with PyOpenGL & Pygame
 
-✏️ 2D Graphics Editor with PyOpenGL & Pygame
 Editor grafis 2D interaktif yang memungkinkan pengguna menggambar dan memanipulasi objek-objek 2D menggunakan OpenGL.
 
-✨ Fitur
-Gambar objek 2D:
+## ✨ Fitur
 
-Titik (Point)
+- Gambar objek 2D:
+  - Titik (Point)
+  - Garis (Line)
+  - Persegi (Rectangle)
+  - Elips (Ellipse)
+- Transformasi objek:
+  - Translasi
+  - Rotasi
+  - Skala
+- Window Clipping (Cohen-Sutherland)
+- Warna & ketebalan garis dinamis
+- Interaksi objek (pilih, hapus, transformasi)
 
-Garis (Line)
+## 🚀 Menjalankan Editor
 
-Persegi (Rectangle)
-
-Elips (Ellipse)
-
-Transformasi objek:
-
-Translasi
-
-Rotasi
-
-Skala
-
-Window Clipping (Cohen-Sutherland)
-
-Warna & ketebalan garis dinamis
-
-Interaksi objek (pilih, hapus, transformasi)
-
-🚀 Menjalankan Editor
-bash
-Salin
-Edit
+```bash
 python editor2d.py
-🎮 Kontrol Lengkap
-Mode Gambar
-Tombol	Mode
-F1	Titik
-F2	Garis
-F3	Persegi
-F4	Elips
+```
 
-Interaksi Objek
-Tombol	Aksi
-Klik Kiri	Menentukan titik gambar
-C	Ganti warna
-T	Ganti ketebalan garis
-TAB	Pilih objek berikutnya
-DELETE	Hapus objek terpilih
+## 🎮 Kontrol Lengkap
 
-Transformasi
-Tombol	Aksi
-W, A, S, D	Geser objek
-Q, E	Rotasi objek
-Z, X	Perbesar / perkecil objek
+### Mode Gambar
+| Tombol | Mode       |
+|--------|------------|
+| F1     | Titik      |
+| F2     | Garis      |
+| F3     | Persegi    |
+| F4     | Elips      |
 
-Clipping Window
-Tombol	Aksi
-V	Aktifkan mode pembuatan window
-Klik (2x)	Tentukan sudut kiri bawah & kanan atas
-Panah	Geser window kliping
-+ / -	Zoom window kliping
-B	Hapus window kliping
+### Interaksi Objek
+| Tombol    | Aksi                                |
+|-----------|-------------------------------------|
+| Klik Kiri | Menentukan titik gambar             |
+| C         | Ganti warna                         |
+| T         | Ganti ketebalan garis               |
+| TAB       | Pilih objek berikutnya              |
+| DELETE    | Hapus objek terpilih                |
 
-Keluar
-ESC untuk keluar
+### Transformasi
+| Tombol | Aksi                       |
+|--------|----------------------------|
+| W, A, S, D | Geser objek             |
+| Q, E      | Rotasi objek            |
+| Z, X      | Perbesar / perkecil objek |
 
-⚠️ Catatan Penting
-🛠 Beberapa konstruktor ditulis dengan salah (_init_) → harus diganti menjadi __init__ agar aplikasi berjalan normal!
+### Clipping Window
+| Tombol      | Aksi                                   |
+|-------------|----------------------------------------|
+| V           | Aktifkan mode pembuatan window         |
+| Klik (2x)   | Tentukan sudut kiri bawah & kanan atas |
+| Panah       | Geser window kliping                   |
+| + / -       | Zoom window kliping                    |
+| B           | Hapus window kliping                   |
 
-💡 Teknologi yang Digunakan
-Python 3.x
+### Keluar
+- ESC untuk keluar
 
-Pygame
+## ⚠️ Catatan Penting
 
-PyOpenGL
+🛠 Beberapa konstruktor ditulis dengan salah (`_init_`) → harus diganti menjadi `__init__` agar aplikasi berjalan normal!
 
-🧪 Visual
-Objek di dalam clipping window ditandai dengan warna hijau terang
+## 💡 Teknologi yang Digunakan
 
-Transformasi dilakukan terhadap titik pivot tiap objek
+- Python 3.x
+- Pygame
+- PyOpenGL
+
+## 🧪 Visual
+
+- Objek di dalam clipping window ditandai dengan warna **hijau terang**
+- Transformasi dilakukan terhadap titik pivot tiap objek
+
+---
+
+Selamat bereksplorasi dalam dunia **grafika komputer 2D & 3D**! 🚀🎨🧠
+```
